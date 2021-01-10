@@ -14,16 +14,27 @@
       <text class="{{status === '3'?'active':''}}" data-status="3" bindtap="switchStatus">已完成</text>
     </view>
     <view class='todo_add'>
-      <button class="add-btn" type="primary" size="mini" bindtap="addHandler">
+      <button class="add-btn" type="primary" size="mini" bindtap="bindAddTap">
         添加
       </button>
     </view>
   </view>
   <view class="todo_list" wx:for="{{curList}}" wx:key="id">
-    <view class="todo_item" bindtap="todoHandler" data-id="{{item.id}}">
-      <icon type="{{item.completed ? 'success' :'circle' }}"></icon>
-      <text class="item-name" style="color: {{item.isUrgent ? 'red' : 'black'}}">{{item.name}}</text>
-    </view>
+    <view class="todo_item">
+      <view class="todo_item-content"
+      bindtap="bindTodoTap" 
+      bindlongpress="bindTodoLongPress"
+      bindtouchstart="touchS" 
+      bindtouchmove="touchM" 
+      bindtouchend="touchE"
+      data-id="{{item.id}}"
+      style="{{item.itemStyle}}"
+      >
+        <icon type="{{item.completed ? 'success' :'circle' }}"></icon>
+        <text class="item-name" style="color: {{item.isUrgent ? 'red' : 'black'}}">{{item.name}}</text>
+      </view>
+      <view class='todo_edit-btn' bindtap="bindEditTap">编辑</view>
+    </view> 
   </view>
   <view class='todoForm-box' style="display: {{isFormShow ? 'block': 'none'}}">
     <form class='todoForm' catchsubmit="formSubmit" catchreset="formReset">
@@ -33,13 +44,12 @@
         auto-focus 
         placeholder="输入任务"
         value="{{value}}"
-        name="name"/>
+        name="name"
+        />
       </view>
       <view class="weui-cell">
         <text>是否紧急</text>
         <switch 
-        checked="{{switch2Checked}}" 
-        bindchange="switch2Change"
         checked="{{value}}"
         name="isUrgent"/>
       </view>
@@ -47,17 +57,18 @@
         <button 
         class="todoForm-add_btn" 
         type="primary" 
-        bindtap="addTodo" 
         size="mini"
-        formType="submit">
+        formType="submit"
+        >
         确定添加
       </button>
         <button 
         class="todoForm-cancel_btn" 
         type="default" 
-        bindtap="hideFormHandler" 
+        bindtap="hideForm" 
         size="mini"
-        form-type='reset'>
+        form-type='reset'
+        >
         取消
       </button>
       </view>
