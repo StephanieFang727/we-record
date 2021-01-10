@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/todos/todos",
+    "pages/calendar/calendar",
+    "pages/userInfo/userinfo"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "useExtendedLib":{
+    "weui": true
+  },
+  "tabBar": {
+    "color": "#66cccc",
+    "selectedColor": "#009999",
+    "borderStyle": "black",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/todos/todos",
+        "text": "任务"
+      },
+      {
+        "pagePath": "pages/calendar/calendar",
+        "text": "日历"
+      },
+      {
+        "pagePath": "pages/userInfo/userinfo",
+        "text": "我"
+      }
+    ]
+  }
+}

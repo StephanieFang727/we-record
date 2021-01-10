@@ -1,0 +1,66 @@
+<!--pages/todos.wxml-->
+<view class="page">
+  <view class="todo_date">
+    <picker mode="date" value="{{date}}" start="2015-09-01" end="2025-09-01" bindchange="bindDateChange">
+    <view class="picker">
+    {{date}}
+    </view>
+  </picker>
+  </view>
+  <view class="todo_title">
+    <view class="status">
+      <text class="{{status === '1'?'active':''}}" data-status="1" bindtap="switchStatus">全部</text>
+      <text class="{{status === '2'?'active':''}}" data-status="2" bindtap="switchStatus">未完成</text>
+      <text class="{{status === '3'?'active':''}}" data-status="3" bindtap="switchStatus">已完成</text>
+    </view>
+    <view class='todo_add'>
+      <button class="add-btn" type="primary" size="mini" bindtap="addHandler">
+        添加
+      </button>
+    </view>
+  </view>
+  <view class="todo_list" wx:for="{{curList}}" wx:key="id">
+    <view class="todo_item" bindtap="todoHandler" data-id="{{item.id}}">
+      <icon type="{{item.completed ? 'success' :'circle' }}"></icon>
+      <text class="item-name" style="color: {{item.isUrgent ? 'red' : 'black'}}">{{item.name}}</text>
+    </view>
+  </view>
+  <view class='todoForm-box' style="display: {{isFormShow ? 'block': 'none'}}">
+    <form class='todoForm' catchsubmit="formSubmit" catchreset="formReset">
+      <view class="weui-cell weui-cell_input">
+        <input 
+        class="weui-input"
+        auto-focus 
+        placeholder="输入任务"
+        value="{{value}}"
+        name="name"/>
+      </view>
+      <view class="weui-cell">
+        <text>是否紧急</text>
+        <switch 
+        checked="{{switch2Checked}}" 
+        bindchange="switch2Change"
+        checked="{{value}}"
+        name="isUrgent"/>
+      </view>
+      <view class="todoForm-btn">
+        <button 
+        class="todoForm-add_btn" 
+        type="primary" 
+        bindtap="addTodo" 
+        size="mini"
+        formType="submit">
+        确定添加
+      </button>
+        <button 
+        class="todoForm-cancel_btn" 
+        type="default" 
+        bindtap="hideFormHandler" 
+        size="mini"
+        form-type='reset'>
+        取消
+      </button>
+      </view>
+    </form>
+  </view>
+</view>
