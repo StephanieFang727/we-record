@@ -12,7 +12,7 @@ Page({
     listData: [], // 列表源数据
     curList:[], // 当前展示列表
     calendarData: {}, // 日历源数据
-    editBtnWidth: 160
+    editBtnWidth: 262
   },
   // 获取最新列表
   getList: function(){

@@ -1,5 +1,6 @@
 <!--pages/todos.wxml-->
 <view class="page">
+ <view class="container">
   <view class="todo_date">
     <picker mode="date" value="{{date}}" start="2015-09-01" end="2025-09-01" bindchange="bindDateChange">
     <view class="picker">
@@ -14,7 +15,7 @@
       <text class="{{status === '3'?'active':''}}" data-status="3" bindtap="switchStatus">已完成</text>
     </view>
     <view class='todo_add'>
-      <button class="add-btn" type="primary" size="mini" bindtap="bindAddTap">
+      <button class="add-btn btn" type="primary" size="mini" bindtap="bindAddTap">
         添加
       </button>
     </view>
@@ -31,9 +32,16 @@
       style="{{item.itemStyle}}"
       >
         <icon type="{{item.completed ? 'success' :'circle' }}"></icon>
-        <text class="item-name" style="color: {{item.isUrgent ? 'red' : 'black'}}">{{item.name}}</text>
+        <text class="item-name">{{item.name}}</text>
       </view>
-      <view class='todo_edit-btn' bindtap="bindEditTap">编辑</view>
+      <view class="todo-btn_group">
+        <view class='todo-btn_item todo_edit-btn' bindtap="bindEditTap">
+          <icon class="iconfont icon-bianji"></icon>
+        </view>
+        <view class='todo-btn_item todo_urgent-btn' bindtap="bindEditTap">
+          <icon class="iconfont icon-shoucang"></icon>
+        </view>
+      </view>
     </view> 
   </view>
   <view class='todoForm-box' style="display: {{isFormShow ? 'block': 'none'}}">
@@ -51,19 +59,20 @@
         <text>是否紧急</text>
         <switch 
         checked="{{value}}"
-        name="isUrgent"/>
+        name="isUrgent"
+        color="#FAED26"/>
       </view>
-      <view class="todoForm-btn">
+      <view class="todoForm-btn_group">
         <button 
-        class="todoForm-add_btn" 
+        class="todoForm-add_btn btn" 
         type="primary" 
         size="mini"
         formType="submit"
         >
-        确定添加
+        确定
       </button>
         <button 
-        class="todoForm-cancel_btn" 
+        class="todoForm-cancel_btn btn cancel_btn" 
         type="default" 
         bindtap="hideForm" 
         size="mini"
@@ -74,4 +83,5 @@
       </view>
     </form>
   </view>
+ </view>
 </view>

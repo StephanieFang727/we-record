@@ -5,8 +5,8 @@
     "pages/userInfo/userinfo"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle": "black"
   },
@@ -19,7 +19,7 @@
     "color": "#66cccc",
     "selectedColor": "#009999",
     "borderStyle": "black",
-    "backgroundColor": "#FFFFFF",
+    "backgroundColor": "#fff",
     "list": [
       {
         "pagePath": "pages/todos/todos",
