@@ -208,6 +208,9 @@ Page({
     } catch (e) {
       // Do something when catch error
     }
+    this.setData({
+      todoContentWidth: windowWidth-16
+    })
     await this.initCurList();
     console.log(this.data.curList);
   },

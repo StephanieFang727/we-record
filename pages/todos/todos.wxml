@@ -32,6 +32,7 @@
       bindtap="bindTodoTap" 
       bindlongpress="bindTodoLongPress"
       data-id="{{item.id}}"
+      style="width: {{todoContentWidth}}px"
       >
         <icon type="{{item.completed ? 'success' :'circle' }}"></icon>
         <text class="item-name">{{item.name}}</text>

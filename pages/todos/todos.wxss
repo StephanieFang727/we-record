@@ -44,7 +44,7 @@
 }
 .todo_item-content {
   float: left;
-  width: 700rpx;
+  /* width: 700rpx; */
   height: 100%;
   margin: 0 16rpx ;
   /* left: 16rpx; */
