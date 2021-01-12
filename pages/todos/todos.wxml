@@ -27,8 +27,7 @@
       style="{{item.itemStyle}}"
     >
       <view class="todo_item-content"
-      bindtap="bindTodoTap" 
-      bindlongpress="bindTodoLongPress"
+      bindlongpress="bindTodoTap"
       data-id="{{item.id}}"
       style="width: {{todoContentWidth}}px"
       >
@@ -36,16 +35,16 @@
           <icon class="iconfont icon-shoucang1 todo_urgent-icon"></icon>
         </view>
         <icon class="iconfont{{item.completed ? ' icon-yixuan1' :' icon-weixuan1'}}"></icon>
-        <text class="item-name">{{item.name}}</text>
+        <view><text class="item-name">{{item.name}}</text></view>
       </view>
       <view class="todo-btn_group">
-        <view class='todo-btn_item todo_edit-btn' bindtap="bindEditTap" data-item="{{item}}">
+        <view class='todo-btn_item todo_edit-btn' catchtap="bindEditTap" data-item="{{item}}">
           <icon class="iconfont icon-bianji"></icon>
         </view>
-        <view class='todo-btn_item todo_urgent-btn' bindtap="bindUrgentTap" data-id="{{item.id}}">
+        <view class='todo-btn_item todo_urgent-btn' catchtap="bindUrgentTap" data-id="{{item.id}}">
           <icon class="iconfont{{item.isUrgent ? ' icon-shoucang1' : ' icon-shoucang'}}"></icon>
         </view>
-        <view class='todo-btn_item todo_del-btn' bindtap="bindDelTap" data-id="{{item.id}}">
+        <view class='todo-btn_item todo_del-btn' catchtap="bindDelTap" data-id="{{item.id}}">
           <icon class="iconfont icon-shanchu"></icon>
         </view>
       </view>
@@ -54,17 +53,25 @@
   <view class='todoForm-box' style="display: {{isFormShow ? 'block': 'none'}}">
     <form class='todoForm' catchsubmit="formSubmit" catchreset="formReset">
       <view class="weui-cell weui-cell_input">
-        <input 
+        <!-- <input 
         class="weui-input"
         auto-focus 
         placeholder="输入任务"
         value="{{selectedItem.name}}"
         name="name"
-        />
-      </view>
+        /> -->
+        <textarea
+        class="weui-textarea" 
+        placeholder="请输入文本" 
+        style="height: 3.3em" 
+        value="{{selectedItem.name}}"
+        name="name"/>
+          <view class="weui-textarea-counter">0/100</view>
+        </view>
       <view class="weui-cell">
         <text>是否紧急</text>
-        <switch 
+        <switch
+        class="tocdoForm-switch"
         checked="{{selectedItem.isUrgent}}"
         name="isUrgent"
         color="#FAED26"/>

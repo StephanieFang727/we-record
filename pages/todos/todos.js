@@ -9,11 +9,11 @@ Page({
   data: {
     status: '1',
     isFormShow: false,
-    date: '2021-01-10',
+    date: '',
     listData: [], // 列表源数据
     curList:[], // 当前展示列表
     calendarData: {}, // 日历源数据
-    editBtnWidth: 300,
+    editBtnWidth: 400,
     todoContentWidth: 0,
     selectedTodoName: '',
     selectedIsUrgent: '',
@@ -53,9 +53,22 @@ Page({
     const { id } = e.currentTarget.dataset;
     const {curList: list } = this.data;
     let item = list.filter(item=>item.id === id)[0];
-    item.completed = !item.completed;
-    this.setListData(this.data.listData);
-    this.initCurList();
+    if(!item.completed){
+      item.completed = !item.completed;
+      this.setListData(this.data.listData);
+      this.initCurList();
+    } else {
+      wx.showModal({
+        content: '该任务已完成，确定重新打开吗？',
+        success: (e) => {
+          if(e.confirm){
+            item.completed = !item.completed;
+            this.setListData(this.data.listData);
+            this.initCurList();
+          }
+        }
+      })
+    }
   },
   // 添加任务函数
   bindAddTap: function(e) {
@@ -103,18 +116,6 @@ Page({
     })
     await this.initCurList();
   },
-  // bindTodoLongPress: function(e){
-  //  const { id } = e.currentTarget.dataset;
-  //   wx.showModal({
-  //     title: '删除提示',
-  //     content: '确定要删除这项任务吗？',
-  //     success: (e) => {
-  //       if (e.confirm) {
-  //         this.delTodo(id);
-  //       }
-  //     }
-  //   })
-  // },
   delTodo: function(id){
     let listData = this.data.listData.filter(item=>item.id!==id);
     this.setListData(listData);
@@ -250,7 +251,8 @@ Page({
       // Do something when catch error
     }
     this.setData({
-      todoContentWidth: windowWidth-16
+      todoContentWidth: windowWidth-16,
+      date: util.formatTime(new Date())
     })
     await this.initCurList();
     console.log(this.data.curList);

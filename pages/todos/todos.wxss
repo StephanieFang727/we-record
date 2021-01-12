@@ -3,7 +3,7 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  margin-bottom: 40rpx;
+  margin-bottom: 48rpx;
   font-weight: 1000;
   font-size: large;
 }
@@ -11,6 +11,7 @@
   display: flex;
   width: 100%;
   align-items: center;
+  margin-bottom: 32rpx;
   /*  padding-bottom: 20rpx; */
   /* border-bottom: 1rpx solid #ccc; */
   /* border-bottom: 2px solid #2C3E50; */
@@ -29,7 +30,7 @@
 }
 .todo_title  .todo_add-icon {
   color: #C077AF;
-  font-size: 40px;
+  font-size: 48px;
 }
 /* 框 */
 .todo_list {
@@ -49,7 +50,7 @@
   /* overflow: hidden; */
   /* padding: 0 16rpx; */
   /* border-bottom: 4px solid #2C3E50; */
-  transition: left .3s;
+  transition: left 0.3s;
 }
 .todo_item-content {
   float: left;
@@ -63,32 +64,35 @@
   background-color: #fff;
   border-radius: 10rpx;
   /* font-size: 14pt; */
-  
   /* transition: left .3s; */
   /* border-left: 20rpx solid black; */
 }
-.todo_item-content text{
+.todo_item-content view {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   margin-left: 20rpx;
   font-weight: 800;
-  /* color: rgb(255,255,255); */
 }
 text.active {
   color: #34494E;
 }
 .todo_urgent-icon-box {
   position: absolute;
-  left: 30rpx;
+  left: 12rpx;
   top: -10rpx;
 }
 .todo_urgent-icon {
-  color: #FFE901
+  color: #FFE901;
+  font-size: 24px;
 }
 .todoForm-box {
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
-  height: 30vh;
+  height: 33vh;
   border-bottom: 1rpx solid #66cccc;
   background-color: white;
   z-index: 3;
@@ -99,12 +103,13 @@ text.active {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 300rpx;
+  width: 360rpx;
+  margin-left: 26rpx;
   /* background-color: #66cccc; */
 }
 .todo-btn_item{
-  height: 38px;
-  width: 38px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   vertical-align: middle;
   text-align: center;
@@ -119,8 +124,13 @@ text.active {
 .todo_del-btn {
   background-color: #EE1E4F;
 }
+.tocdoForm-switch{
+  position: absolute;
+  right: 32rpx;
+}
 .todoForm-btn_group {
   position: absolute;
+  bottom: 10rpx;
   right: 32rpx;
 }
 .todoForm-btn_group .btn{
