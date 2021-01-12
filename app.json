@@ -16,8 +16,8 @@
     "weui": true
   },
   "tabBar": {
-    "color": "#66cccc",
-    "selectedColor": "#009999",
+    "color": "#C8A9D3",
+    "selectedColor": "#C077AF",
     "borderStyle": "black",
     "backgroundColor": "#fff",
     "list": [

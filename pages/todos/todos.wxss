@@ -1,11 +1,14 @@
 /* pages/todos.wxss */
 .todo_date {
   display: flex;
-  width: 100%;
+  /* width: 100%; */
+  width: 300rpx;
   justify-content: center;
+  margin: 0 auto;
   margin-bottom: 48rpx;
   font-weight: 1000;
   font-size: large;
+  border: 1rpx solid black;
 }
 .todo_title {
   display: flex;
@@ -135,6 +138,7 @@ text.active {
 }
 .todoForm-btn_group .btn{
   margin-left: 10rpx;
+  width: 160rpx;
 }
 
 
