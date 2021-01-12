@@ -9,8 +9,9 @@ view {
   
   /* background-color: rgb(58,175,169,0.6); */
   /* background-color: #3AAFA9; */
-  background-color: #eee;
+  background-color: #f7f7f7;
   color: #2C3E50;
+  /* color: #22B6ED */
 }
 .container {
   min-height: 100vh;
@@ -18,7 +19,7 @@ view {
   padding: 30rpx 0;
 } 
 .btn {
-  background-color: #009999 !important ;
+  background-color: #C077AF !important ;
   /* width: rpx !important; */
 }
 .btn.cancel_btn {

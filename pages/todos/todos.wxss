@@ -10,6 +10,7 @@
 .todo_title {
   display: flex;
   width: 100%;
+  align-items: center;
   /*  padding-bottom: 20rpx; */
   /* border-bottom: 1rpx solid #ccc; */
   /* border-bottom: 2px solid #2C3E50; */
@@ -22,10 +23,18 @@
   font-weight: 800;
   color: #bbb;
 }
+.todo_title  .todo_add-icon-box {
+  position: absolute;
+  right: 32rpx;
+}
+.todo_title  .todo_add-icon {
+  color: #C077AF;
+  font-size: 40px;
+}
 /* 框 */
 .todo_list {
   width: 100%;
-  height: 150rpx;
+  height: 160rpx;
   position: relative;
   /* padding: 0 16rpx; */
   margin: 16rpx 0;
@@ -53,15 +62,26 @@
   padding: 0rpx 16rpx;
   background-color: #fff;
   border-radius: 10rpx;
+  /* font-size: 14pt; */
+  
   /* transition: left .3s; */
   /* border-left: 20rpx solid black; */
 }
 .todo_item-content text{
   margin-left: 20rpx;
+  font-weight: 800;
   /* color: rgb(255,255,255); */
 }
 text.active {
   color: #34494E;
+}
+.todo_urgent-icon-box {
+  position: absolute;
+  left: 30rpx;
+  top: -10rpx;
+}
+.todo_urgent-icon {
+  color: #FFE901
 }
 .todoForm-box {
   position: fixed;
@@ -91,13 +111,13 @@ text.active {
   /* margin: 0 20rpx; */
 }
 .todo_edit-btn {
-  background-color: #66cccc;
+  background-color: #1FB27F;
 }
 .todo_urgent-btn {
-  background-color: #FAED26;
+  background-color: #FFE901;
 }
 .todo_del-btn {
-  background-color: #D21146;
+  background-color: #EE1E4F;
 }
 .todoForm-btn_group {
   position: absolute;

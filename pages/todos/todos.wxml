@@ -14,10 +14,8 @@
       <text class="{{status === '2'?'active':''}}" data-status="2" bindtap="switchStatus">未完成</text>
       <text class="{{status === '3'?'active':''}}" data-status="3" bindtap="switchStatus">已完成</text>
     </view>
-    <view class='todo_add'>
-      <button class="add-btn btn" type="primary" size="mini" bindtap="bindAddTap">
-        添加
-      </button>
+    <view class='todo_add-icon-box'>
+      <icon class="iconfont icon-zengjia todo_add-icon" bindtap="bindAddTap"></icon>
     </view>
   </view>
   <view class="todo_list" wx:for="{{curList}}" wx:key="id">
@@ -34,7 +32,9 @@
       data-id="{{item.id}}"
       style="width: {{todoContentWidth}}px"
       >
-        <!-- <icon type="{{item.completed ? 'success' :'circle' }}"></icon> -->
+        <view class='todo_urgent-icon-box' wx:if="{{item.isUrgent}}">
+          <icon class="iconfont icon-shoucang1 todo_urgent-icon"></icon>
+        </view>
         <icon class="iconfont{{item.completed ? ' icon-yixuan1' :' icon-weixuan1'}}"></icon>
         <text class="item-name">{{item.name}}</text>
       </view>
@@ -43,7 +43,7 @@
           <icon class="iconfont icon-bianji"></icon>
         </view>
         <view class='todo-btn_item todo_urgent-btn' bindtap="bindUrgentTap" data-id="{{item.id}}">
-          <icon class="iconfont icon-shoucang"></icon>
+          <icon class="iconfont{{item.isUrgent ? ' icon-shoucang1' : ' icon-shoucang'}}"></icon>
         </view>
         <view class='todo-btn_item todo_del-btn' bindtap="bindDelTap" data-id="{{item.id}}">
           <icon class="iconfont icon-shanchu"></icon>

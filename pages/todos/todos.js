@@ -218,9 +218,14 @@ Page({
       selectedItem: item,
     })
   },
-  // bindUrgentTap: function(e) {
-
-  // },
+  bindUrgentTap: function(e) {
+    const { id } = e.currentTarget.dataset;
+    const {curList: list } = this.data;
+    let item = list.filter(item=>item.id === id)[0];
+    item.isUrgent = !item.isUrgent;
+    this.setListData(this.data.listData);
+    this.initCurList();
+  },
   bindDelTap: function(e){
     const { id } = e.currentTarget.dataset;
     console.log(id);
