@@ -3,7 +3,7 @@
   position: absolute;
   width: 100%;
   min-height: 100%;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   /* background-color: rgb(58,175,169,0.6); */
   /* background-color: #3AAFA9; */
   background-color: #eee;
@@ -15,7 +15,7 @@
   padding: 30rpx 0;
 } 
 .btn {
-  background-color: #2C3E50 !important ;
+  background-color: #009999 !important ;
   /* width: rpx !important; */
 }
 .btn.cancel_btn {

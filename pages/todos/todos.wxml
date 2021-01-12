@@ -21,15 +21,17 @@
     </view>
   </view>
   <view class="todo_list" wx:for="{{curList}}" wx:key="id">
-    <view class="todo_item">
-      <view class="todo_item-content"
-      bindtap="bindTodoTap" 
-      bindlongpress="bindTodoLongPress"
+    <view class="todo_item"
       bindtouchstart="touchS" 
       bindtouchmove="touchM" 
       bindtouchend="touchE"
       data-id="{{item.id}}"
       style="{{item.itemStyle}}"
+    >
+      <view class="todo_item-content"
+      bindtap="bindTodoTap" 
+      bindlongpress="bindTodoLongPress"
+      data-id="{{item.id}}"
       >
         <icon type="{{item.completed ? 'success' :'circle' }}"></icon>
         <text class="item-name">{{item.name}}</text>

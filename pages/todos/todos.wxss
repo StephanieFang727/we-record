@@ -12,7 +12,7 @@
   width: 100%;
   /*  padding-bottom: 20rpx; */
   /* border-bottom: 1rpx solid #ccc; */
-  border-bottom: 2px solid #2C3E50;
+  /* border-bottom: 2px solid #2C3E50; */
 }
 .todo_title .status {
   display: flex;
@@ -22,29 +22,43 @@
   font-weight: 800;
   color: #bbb;
 }
-.todo_item {
-  position: relative;
-  display: flex;
-  height: 150rpx;
+/* 框 */
+.todo_list {
   width: 100%;
-  align-items: center;
+  height: 150rpx;
+  position: relative;
+  /* padding: 0 16rpx; */
+  margin: 16rpx 0;
   overflow: hidden;
-  border-bottom: 4px solid #2C3E50;
+}
+.todo_item {
+  position: absolute;
+  /* display: flex; */
+  height: 100%;
+  /* width: 100%; */
+  /* align-items: center; */
+  /* overflow: hidden; */
+  /* padding: 0 16rpx; */
+  /* border-bottom: 4px solid #2C3E50; */
+  transition: left .3s;
 }
 .todo_item-content {
-  width: 100%;
+  float: left;
+  width: 700rpx;
   height: 100%;
+  margin: 0 16rpx ;
+  /* left: 16rpx; */
   display: flex;
   align-items: center;
-  position: absolute;
-  padding: 0rpx 32rpx;
-  z-index: 2;
-  background-color: #34494E;
-  transition: left .3s;
+  /* padding: 0rpx 32rpx; */
+  background-color: #fff;
+  border-radius: 10rpx;
+  /* transition: left .3s; */
+  /* border-left: 20rpx solid black; */
 }
 .todo_item-content text{
   margin-left: 20rpx;
-  color: rgb(255,255,255);
+  /* color: rgb(255,255,255); */
 }
 text.active {
   color: #34494E;
@@ -55,18 +69,16 @@ text.active {
   top: 0;
   width: 100%;
   height: 30vh;
+  border-bottom: 1rpx solid #66cccc;
   background-color: white;
   z-index: 3;
 }
 .todo-btn_group {
-  position: absolute;
+  float: left;
+  height: 150rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 1;
   width: 200rpx;
   /* background-color: #66cccc; */
 }

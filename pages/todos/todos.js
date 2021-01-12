@@ -12,7 +12,8 @@ Page({
     listData: [], // 列表源数据
     curList:[], // 当前展示列表
     calendarData: {}, // 日历源数据
-    editBtnWidth: 262
+    editBtnWidth: 262,
+    todoContentWidth: 0,
   },
   // 获取最新列表
   getList: function(){
@@ -180,7 +181,7 @@ Page({
     const disX = startX - endX
     const {editBtnWidth} = this.data;
     // 如果距离小于删除按钮的1/2，不显示删除按钮
-    const itemStyle = disX > editBtnWidth/2 ? 'left:-' + editBtnWidth + 'rpx' : 'left:0'
+    const itemStyle = disX > 10 ? 'left:-' + editBtnWidth + 'rpx' : 'left:0'
     // 获取手指触摸的是哪一个item
     const { id }= e.currentTarget.dataset;
     // 将拼接好的样式设置到当前item中
@@ -200,7 +201,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
+    let windowWidth = 0;
+    try {
+      windowWidth = wx.getSystemInfoSync().windowWidth;
+      console.log(windowWidth);
+    } catch (e) {
+      // Do something when catch error
+    }
     await this.initCurList();
+    console.log(this.data.curList);
   },
 
   /**
