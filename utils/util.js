@@ -15,6 +15,14 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const getIndex = ((arr,item)=>{
+  for(let i in arr){
+    if(arr[i].id == item.id){
+      return i;
+    };
+  };
+});
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  getIndex,
 }

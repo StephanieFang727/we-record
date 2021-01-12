@@ -1,5 +1,6 @@
 // pages/todos.js
 import api from '../../utils/api';
+import util from '../../utils/util';
 Page({
 
   /**
@@ -12,8 +13,12 @@ Page({
     listData: [], // 列表源数据
     curList:[], // 当前展示列表
     calendarData: {}, // 日历源数据
-    editBtnWidth: 262,
+    editBtnWidth: 300,
     todoContentWidth: 0,
+    selectedTodoName: '',
+    selectedIsUrgent: '',
+    selectedItem: '',
+    formType: 'add',
   },
   // 获取最新列表
   getList: function(){
@@ -56,6 +61,7 @@ Page({
   bindAddTap: function(e) {
     this.setData({
       isFormShow: true,
+      formType: 'add',
     })
   },
   // 关闭弹窗函数
@@ -66,13 +72,25 @@ Page({
   },
   // 提交表单函数
   formSubmit: function(e) {
-    let newItem = {id:new Date().getTime(), completed: false, ...e.detail.value};
-    let listData = [...this.data.listData,newItem];
+    const {formType, selectedItem: item} = this.data;
+    let listData = [];
+    let newItem = {};
+    if(formType==='add'){
+      newItem = {id:new Date().getTime(), completed: false, ...e.detail.value};
+      listData = [...this.data.listData,newItem];
+    }else if(formType==='edit'){
+      newItem = {id:item.id, completed: item.completed, ...e.detail.value};
+      console.log(newItem);
+      listData = this.data.listData;
+      const index = util.getIndex(listData,item);
+      let temp = listData.splice(index,1, newItem);
+      console.log(temp);
+    }
     this.setListData(listData);
     this.initCurList();
     this.setData({
       isFormShow: false,
-      value: '',
+      selectedItem: {},
     })
   },
  // 重置表单
@@ -85,18 +103,18 @@ Page({
     })
     await this.initCurList();
   },
-  bindTodoLongPress: function(e){
-   const { id } = e.currentTarget.dataset;
-    wx.showModal({
-      title: '删除提示',
-      content: '确定要删除这项任务吗？',
-      success: (e) => {
-        if (e.confirm) {
-          this.delTodo(id);
-        }
-      }
-    })
-  },
+  // bindTodoLongPress: function(e){
+  //  const { id } = e.currentTarget.dataset;
+  //   wx.showModal({
+  //     title: '删除提示',
+  //     content: '确定要删除这项任务吗？',
+  //     success: (e) => {
+  //       if (e.confirm) {
+  //         this.delTodo(id);
+  //       }
+  //     }
+  //   })
+  // },
   delTodo: function(id){
     let listData = this.data.listData.filter(item=>item.id!==id);
     this.setListData(listData);
@@ -193,9 +211,28 @@ Page({
     })
   },
   bindEditTap: function(e) {
-    // this.setData({
-    //   isFormShow: true,
-    // })
+    const { item } = e.currentTarget.dataset;
+    this.setData({
+      isFormShow: true,
+      formType: 'edit',
+      selectedItem: item,
+    })
+  },
+  // bindUrgentTap: function(e) {
+
+  // },
+  bindDelTap: function(e){
+    const { id } = e.currentTarget.dataset;
+    console.log(id);
+    wx.showModal({
+      title: '删除提示',
+      content: '确定要删除这项任务吗？',
+      success: (e) => {
+        if (e.confirm) {
+          this.delTodo(id);
+        }
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -204,7 +241,6 @@ Page({
     let windowWidth = 0;
     try {
       windowWidth = wx.getSystemInfoSync().windowWidth;
-      console.log(windowWidth);
     } catch (e) {
       // Do something when catch error
     }

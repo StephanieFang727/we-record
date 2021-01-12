@@ -50,7 +50,7 @@
   /* left: 16rpx; */
   display: flex;
   align-items: center;
-  /* padding: 0rpx 32rpx; */
+  padding: 0rpx 16rpx;
   background-color: #fff;
   border-radius: 10rpx;
   /* transition: left .3s; */
@@ -78,8 +78,8 @@ text.active {
   height: 150rpx;
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 200rpx;
+  justify-content: space-around;
+  width: 300rpx;
   /* background-color: #66cccc; */
 }
 .todo-btn_item{
@@ -88,7 +88,16 @@ text.active {
   border-radius: 50%;
   vertical-align: middle;
   text-align: center;
-  margin: 0 10rpx;
+  /* margin: 0 20rpx; */
+}
+.todo_edit-btn {
+  background-color: #66cccc;
+}
+.todo_urgent-btn {
+  background-color: #FAED26;
+}
+.todo_del-btn {
+  background-color: #D21146;
 }
 .todoForm-btn_group {
   position: absolute;
@@ -96,12 +105,6 @@ text.active {
 }
 .todoForm-btn_group .btn{
   margin-left: 10rpx;
-}
-.todo_edit-btn {
-  background-color: #66cccc;
-}
-.todo_urgent-btn {
-  background-color: #FAED26;
 }
 
 

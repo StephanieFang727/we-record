@@ -34,15 +34,19 @@
       data-id="{{item.id}}"
       style="width: {{todoContentWidth}}px"
       >
-        <icon type="{{item.completed ? 'success' :'circle' }}"></icon>
+        <!-- <icon type="{{item.completed ? 'success' :'circle' }}"></icon> -->
+        <icon class="iconfont{{item.completed ? ' icon-yixuan1' :' icon-weixuan1'}}"></icon>
         <text class="item-name">{{item.name}}</text>
       </view>
       <view class="todo-btn_group">
-        <view class='todo-btn_item todo_edit-btn' bindtap="bindEditTap">
+        <view class='todo-btn_item todo_edit-btn' bindtap="bindEditTap" data-item="{{item}}">
           <icon class="iconfont icon-bianji"></icon>
         </view>
-        <view class='todo-btn_item todo_urgent-btn' bindtap="bindEditTap">
+        <view class='todo-btn_item todo_urgent-btn' bindtap="bindUrgentTap" data-id="{{item.id}}">
           <icon class="iconfont icon-shoucang"></icon>
+        </view>
+        <view class='todo-btn_item todo_del-btn' bindtap="bindDelTap" data-id="{{item.id}}">
+          <icon class="iconfont icon-shanchu"></icon>
         </view>
       </view>
     </view> 
@@ -54,14 +58,14 @@
         class="weui-input"
         auto-focus 
         placeholder="输入任务"
-        value="{{value}}"
+        value="{{selectedItem.name}}"
         name="name"
         />
       </view>
       <view class="weui-cell">
         <text>是否紧急</text>
         <switch 
-        checked="{{value}}"
+        checked="{{selectedItem.isUrgent}}"
         name="isUrgent"
         color="#FAED26"/>
       </view>
