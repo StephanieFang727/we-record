@@ -1,11 +1,12 @@
 const formatTime = date => {
   const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
+  let month = date.getMonth() + 1
+  let day = date.getDate()
   // const hour = date.getHours()
   // const minute = date.getMinutes()
   // const second = date.getSeconds()
-
+  month = month > 9 ? month : '0' + month;
+  day = day > 9 ? day : '0' + day;
   // return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
   return [year, month, day].join('-');
 }
