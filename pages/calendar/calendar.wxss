@@ -1,1 +1,9 @@
 /* pages/calendar/calendar.wxss */
+.cal_header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30rpx;
+}
+.cal_content {
+  padding: 0 16rpx;
+}

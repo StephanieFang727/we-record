@@ -58,7 +58,7 @@ Page({
       this.setListData(this.data.listData);
       this.initCurList();
     } else {
-      wx.showModal({
+      wxp.showModal({
         content: '该任务已完成，确定重新打开吗？',
         success: (e) => {
           if(e.confirm){
@@ -244,19 +244,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
-    let windowWidth = 0;
+    const {windowWidth} = wxp.getSystemInfoSync();
     // try {
     //   windowWidth = wx.getSystemInfoSync().windowWidth;
     // } catch (e) {
     //   // Do something when catch error
     // }
-    console.log(wxp.getSystemInfoSync())
     this.setData({
       todoContentWidth: windowWidth-16,
       date: util.formatTime(new Date())
     })
     await this.initCurList();
-    console.log(this.data.curList);
   },
 
   /**

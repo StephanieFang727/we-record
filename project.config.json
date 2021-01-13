@@ -62,7 +62,19 @@
       "list": []
     },
     "miniprogram": {
-      "list": []
+      "list": [
+        {
+          "name": "pages/todos/calendar",
+          "pathName": "pages/todos/calendar",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/calendar/calendar",
+          "pathName": "pages/calendar/calendar",
+          "scene": null
+        }
+      ]
     }
   }
 }

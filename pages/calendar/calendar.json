@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "日历",
-  "usingComponents": {}
+  "usingComponents": {
+    "CalendarTable": "/components/calendar/calendarTable"
+  }
 }

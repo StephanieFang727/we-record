@@ -1,0 +1,15 @@
+<!--components/calendar/calendarTable.wxml-->
+<view class="table">
+  <view class="tr">
+    <view class="th">标题1</view>
+    <view class="th">标题2</view>
+  </view>
+  <view class='tr'>
+    <view class="td">1</view>
+    <view class="td">2</view>
+  </view>
+  <view class='tr'>
+    <view class="td">3</view>
+    <view class="td">4</view>
+  </view>
+</view>  
