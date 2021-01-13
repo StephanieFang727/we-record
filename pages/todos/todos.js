@@ -1,5 +1,5 @@
 // pages/todos.js
-import api from '../../utils/api';
+import api, {wxp}  from '../../utils/api';
 import util from '../../utils/util';
 Page({
 
@@ -245,11 +245,12 @@ Page({
    */
   onLoad: async function (options) {
     let windowWidth = 0;
-    try {
-      windowWidth = wx.getSystemInfoSync().windowWidth;
-    } catch (e) {
-      // Do something when catch error
-    }
+    // try {
+    //   windowWidth = wx.getSystemInfoSync().windowWidth;
+    // } catch (e) {
+    //   // Do something when catch error
+    // }
+    console.log(wxp.getSystemInfoSync())
     this.setData({
       todoContentWidth: windowWidth-16,
       date: util.formatTime(new Date())

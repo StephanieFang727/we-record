@@ -1,0 +1,22 @@
+{
+  "name": "we-record",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StephanieFang727/we-record.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StephanieFang727/we-record/issues"
+  },
+  "homepage": "https://github.com/StephanieFang727/we-record#readme",
+  "dependencies": {
+    "miniprogram-api-promise": "^1.0.4"
+  }
+}

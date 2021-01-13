@@ -53,13 +53,6 @@
   <view class='todoForm-box' style="display: {{isFormShow ? 'block': 'none'}}">
     <form class='todoForm' catchsubmit="formSubmit" catchreset="formReset">
       <view class="weui-cell weui-cell_input">
-        <!-- <input 
-        class="weui-input"
-        auto-focus 
-        placeholder="输入任务"
-        value="{{selectedItem.name}}"
-        name="name"
-        /> -->
         <textarea
         class="weui-textarea" 
         placeholder="请输入文本" 

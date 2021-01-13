@@ -1,3 +1,9 @@
+import { promisifyAll, promisify } from 'miniprogram-api-promise';
+
+const wxp = {}
+// promisify all wx's api
+promisifyAll(wx, wxp)
+
 const getStorageData = (key) => {
   return new Promise((resolve, reject)=>{
     wx.getStorage({
@@ -29,5 +35,6 @@ const setStorageData = (key, data) =>{
 
 module.exports = {
   getStorageData,
-  setStorageData
+  setStorageData,
+  wxp
 }
